@@ -1,7 +1,7 @@
 import json
 
 from slack import SlackMessage, SlackAttachment
-from .base import Event
+from events.base import Event
 
 
 class SNSEvent(Event):
@@ -20,11 +20,11 @@ class SNSEvent(Event):
         event_class = None
 
         if 'AutoScalingGroupARN' in self.message:
-            from events.autoscaling import AutoScalingEvent
+            from events.sns.autoscaling import AutoScalingEvent
             event_class = AutoScalingEvent
 
         elif 'AlarmName' in self.message:
-            from events.alarm import AlarmEvent
+            from events.sns.alarm import AlarmEvent
             event_class = AlarmEvent
 
         if event_class:

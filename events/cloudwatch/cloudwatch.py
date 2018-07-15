@@ -1,7 +1,7 @@
 import json
 
 from slack import SlackAttachment, SlackMessage
-from .base import Event
+from events.base import Event
 
 
 class CloudWatchEvent(Event):
@@ -20,7 +20,7 @@ class CloudWatchEvent(Event):
 
         # Handle supported event types
         if self.source == 'aws.health':
-            from events.health import HealthEvent
+            from events.cloudwatch.health import HealthEvent
             event_class = HealthEvent
 
         if event_class:

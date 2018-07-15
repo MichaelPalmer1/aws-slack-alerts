@@ -3,8 +3,8 @@ from botocore.exceptions import ClientError
 from slack import SlackMessage, SlackAttachment
 from utils import build_asg_link, build_ec2_search
 
-from . import event_types
-from .sns import SNSEvent
+from events import event_types
+from events.sns import SNSEvent
 
 
 class AutoScalingEvent(SNSEvent):
