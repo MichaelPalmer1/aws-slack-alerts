@@ -43,3 +43,21 @@ def build_asg_link(group_name, region=None):
                'region': region,
                'asg': group_name
            }
+
+
+def build_alarm_link(alarm_name, region=None):
+    """
+    Build alarm url
+
+    :param str alarm_name: Alarm name
+    :param str region: AWS Region
+    :return: URL
+    :rtype: str
+    """
+    if not region:
+        region = get_region()
+
+    return 'https://console.aws.amazon.com/cloudwatch/home?region=%(region)s#alarm:alarmFilter=ANY;name=%(alarm)s' % {
+        'region': region,
+        'alarm': alarm_name
+    }

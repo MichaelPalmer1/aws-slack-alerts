@@ -18,6 +18,7 @@ class AutoScalingEvent(SNSEvent):
 
     def __init__(self, event):
         super(AutoScalingEvent, self).__init__(event)
+        self.event_type = self.message['Event']
         self.ec2 = self._session.resource('ec2')
 
         # Attempt to resolve the account alias

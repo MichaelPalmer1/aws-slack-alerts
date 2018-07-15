@@ -32,7 +32,7 @@ def lambda_handler(event, context):
         # Look at the first record to see what kind of event it is
         record = event['Records'][0]
 
-        if 'Sns' in record:
+        if record['EventSource'] == 'aws:sns':
             notification = SNSEvent(event)
             message = notification.build_message()
 
