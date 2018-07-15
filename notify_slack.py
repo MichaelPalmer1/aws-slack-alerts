@@ -1,5 +1,8 @@
 import json
 import logging
+import os
+
+from slacker import Slacker
 
 from events.sns import SNSEvent
 
@@ -8,7 +11,8 @@ logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
 # Environment variables
-# HOOK_URL = os.environ['HOOK_URL']
+SLACK_TOKEN = os.environ['SLACK_TOKEN']
+SLACK_CHANNEL = os.environ['SLACK_CHANNEL']
 
 
 def lambda_handler(event, context):
@@ -33,6 +37,11 @@ def lambda_handler(event, context):
             message = notification.build_message()
 
     if message:
-        print(json.dumps(message))
+        print(json.dumps(message.build()))
+        slacker = Slacker(token=SLACK_TOKEN)
+        slacker.chat.post_message(
+            channel=SLACK_CHANNEL,
+            attachments=message.attachments
+        )
     else:
         logger.error('Message was not generated')

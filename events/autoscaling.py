@@ -119,6 +119,4 @@ class AutoScalingEvent(SNSEvent):
 
         # Add the attachment
         message.add_attachment(attachment)
-
-        # Build the message
-        return message.build()
+        return message
