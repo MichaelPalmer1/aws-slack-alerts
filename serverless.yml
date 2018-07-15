@@ -3,6 +3,16 @@ service: slack-alerts
 provider:
   name: aws
   runtime: python3.6
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - iam:ListAccountAliases
+      Resource: '*'
+    - Effect: Allow
+      Action:
+        - ec2:DescribeSubnets
+        - ec2:DescribeVpcs
+      Resource: '*'
 
 functions:
   notify_slack:
@@ -23,4 +33,4 @@ plugins:
 package:
   exclude:
     - node_modules/**
-    - *.json
+    - '*.json'
