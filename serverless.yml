@@ -1,0 +1,20 @@
+service: slack-alerts
+
+provider:
+  name: aws
+  runtime: python3.6
+
+functions:
+  alarm_notify_slack:
+    handler: notify_slack.lambda_handler
+    description: Alerting to Slack
+    environment:
+      SLACK_TOKEN: ${slackToken}
+      SLACK_CHANNEL: ${slackChannel}
+
+custom:
+  pythonRequirements:
+    dockerizePip: true
+
+plugins:
+  - serverless-python-requirements
