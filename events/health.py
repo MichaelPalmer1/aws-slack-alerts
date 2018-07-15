@@ -22,7 +22,7 @@ class HealthEvent(CloudWatchEvent):
             title=self.detail['eventTypeCode'],
             title_link=build_phd_link(self.detail['eventArn']),
             text=text,
-            footer='CloudWatch Event',
+            footer='Health Event',
             color='danger'
         )
 
