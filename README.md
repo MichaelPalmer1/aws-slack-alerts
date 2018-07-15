@@ -43,3 +43,6 @@ to send messages to that topic.
 
 ### Alarm Triggered
 ![Alarm Triggered](img/alarm-triggered.png)
+
+### Alarm OK
+![Alarm OK](img/alarm-ok.png)
