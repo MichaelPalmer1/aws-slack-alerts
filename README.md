@@ -41,3 +41,5 @@ to send messages to that topic.
 ### Auto Scaling Termination
 ![Auto Scaling Termination](img/asg-terminate.png)
 
+### Alarm Triggered
+![Alarm Triggered](img/alarm-triggered.png)
