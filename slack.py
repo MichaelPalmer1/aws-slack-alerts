@@ -18,8 +18,9 @@ class SlackMessage:
 class SlackAttachment:
     fields = []
 
-    def __init__(self, title, text, fallback=None, color='', footer=None):
+    def __init__(self, title, text, title_link=None, fallback=None, color='', footer=None):
         self.title = title
+        self.title_link = title_link
         self.text = text
         self.fallback = fallback or self.title
         self.color = color
@@ -35,6 +36,7 @@ class SlackAttachment:
     def build(self):
         return {
             'title': self.title,
+            'title_link': self.title_link,
             'text': self.text,
             'fallback': self.fallback,
             'footer': self.footer,

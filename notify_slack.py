@@ -4,6 +4,7 @@ import os
 
 from slacker import Slacker
 
+from events.health import HealthEvent
 from events.sns import SNSEvent
 
 # Setup logger
@@ -34,6 +35,11 @@ def lambda_handler(event, context):
 
         if record['EventSource'] == 'aws:sns':
             notification = SNSEvent(event)
+            message = notification.build_message()
+    elif 'source' in event:
+        # This may be a CloudWatch event
+        if event['source'] == 'aws.health':
+            notification = HealthEvent(event)
             message = notification.build_message()
 
     if message:

@@ -61,3 +61,15 @@ def build_alarm_link(alarm_name, region=None):
         'region': region,
         'alarm': alarm_name
     }
+
+
+def build_phd_link(arn):
+    """
+    Build link to personal health dashboard
+
+    :param str arn: Event ARN
+    :return: URL
+    :rtype: str
+    """
+
+    return "https://phd.aws.amazon.com/phd/home#/event-log?eventID=%s&eventTab=details&layout=vertical" % arn
