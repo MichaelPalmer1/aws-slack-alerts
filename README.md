@@ -16,6 +16,14 @@ your Slack team until I am able to distribute an app publicly.
 
 ### Deploy function
 
+Install the function locally:
+
+```
+sls install -u https://github.com/MichaelPalmer1/aws-slack-alerts/
+```
+
+Switch into the `aws-slack-alerts` folder and deploy the function:
+
 ```
 sls deploy --token=<Your Slack Token> --channel='#channel'
 ```
