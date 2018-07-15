@@ -22,6 +22,8 @@ functions:
     environment:
       SLACK_TOKEN: ${opt:token}
       SLACK_CHANNEL: ${opt:channel}
+    events:
+      - sns: notify-slack
 
 custom:
   pythonRequirements:

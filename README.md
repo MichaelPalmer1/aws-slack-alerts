@@ -20,11 +20,10 @@ your Slack team until I am able to distribute an app publicly.
 sls deploy --token=<Your Slack Token> --channel='#channel'
 ```
 
-### Create SNS Topic
+### Configure SNS Topic
 
-In your account, create an SNS topic and subscribe this function to it. Then, setup your auto scaling groups and
-CloudWatch alarms to send messages to that topic.
-
+Serverless will create a SNS topic named `notify-slack`. Simply configure your auto scaling groups and CloudWatch alarms
+to send messages to that topic.
 
 ## Sample Notifications
 
