@@ -1,17 +1,13 @@
+from events.cloudwatch import CloudWatchEvent
 from slack import SlackMessage, SlackAttachment
 from utils import build_phd_link
-from .base import Event
 
 
-class HealthEvent(Event):
+class HealthEvent(CloudWatchEvent):
 
     def __init__(self, event):
         super(HealthEvent, self).__init__(event)
-        self.region = self.event['region']
-        self.resources = self.event['resources']
-        self.detail = self.event['detail']
         self.service = self.detail['service']
-        self.account_id = self.event['account']
 
     def build_message(self):
         message = SlackMessage()

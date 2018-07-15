@@ -3,7 +3,7 @@ from abc import abstractmethod
 import boto3
 
 
-class Event:
+class Event(object):
 
     def __init__(self, event):
         self.event = event

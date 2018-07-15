@@ -1,5 +1,8 @@
-class SlackMessage:
+class SlackMessage(object):
     attachments = []
+
+    def __init__(self, text=None):
+        self.text = text
 
     def add_attachment(self, attachment):
         """
@@ -11,11 +14,12 @@ class SlackMessage:
 
     def build(self):
         return {
-            'attachments': self.attachments
+            'attachments': self.attachments,
+            'text': self.text
         }
 
 
-class SlackAttachment:
+class SlackAttachment(object):
     fields = []
 
     def __init__(self, title, text, title_link=None, fallback=None, color='', footer=None):
