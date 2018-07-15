@@ -1,13 +1,10 @@
 # AWS Slack Alerts
 
 Lambda function to send AWS alerts to a Slack channel. This function was originally developed by me while working at
-[Morris Technology](http://www.morristechnology.com) ([@morris-tech](https://github.com/morris-tech)). I have recently
-restructured it so that it can be expanded to support more event types.
-
-## Event Support
-
-This function was originally developed to serve auto scaling notifications, CloudWatch alarms, and AWS Health Events
-into Slack, but it should support (for the most part) other SNS events and CloudWatch Events.
+[Morris Technology](http://www.morristechnology.com) ([@morris-tech](https://github.com/morris-tech)). We wanted to know
+when instances in an auto scaling group were launched/terminated, when a CloudWatch alarm was triggered, and when an
+AWS health event occurred. It has native support for those three scenarios, but should (more or less) support any
+messages sent to SNS or CloudWatch events triggered.
 
 ## Deployment
 You can easily deploy this function to your account using [Serverless](https://serverless.com/)
@@ -22,3 +19,8 @@ your Slack team until I am able to distribute an app publicly.
 ```
 sls deploy --token=<Your Slack Token> --channel='#channel'
 ```
+
+### Create SNS Topic
+
+In your account, create an SNS topic and subscribe this function to it. Then, setup your auto scaling groups and
+CloudWatch alarms to send messages to that topic.
