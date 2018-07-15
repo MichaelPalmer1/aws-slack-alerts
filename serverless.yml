@@ -5,12 +5,13 @@ provider:
   runtime: python3.6
 
 functions:
-  alarm_notify_slack:
+  notify_slack:
+    name: notify-slack
     handler: notify_slack.lambda_handler
     description: Alerting to Slack
     environment:
-      SLACK_TOKEN: ${slackToken}
-      SLACK_CHANNEL: ${slackChannel}
+      SLACK_TOKEN: ${opt:token}
+      SLACK_CHANNEL: ${opt:channel}
 
 custom:
   pythonRequirements:
