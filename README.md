@@ -24,3 +24,13 @@ sls deploy --token=<Your Slack Token> --channel='#channel'
 
 In your account, create an SNS topic and subscribe this function to it. Then, setup your auto scaling groups and
 CloudWatch alarms to send messages to that topic.
+
+
+## Sample Notifications
+
+### Auto Scaling Launch
+![Auto Scaling Launch](img/asg-launch.png)
+
+### Auto Scaling Termination
+![Auto Scaling Termination](img/asg-terminate.png)
+

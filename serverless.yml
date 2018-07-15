@@ -34,3 +34,4 @@ package:
   exclude:
     - node_modules/**
     - '*.json'
+    - img/*
