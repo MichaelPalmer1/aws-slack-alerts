@@ -46,3 +46,6 @@ to send messages to that topic.
 
 ### Alarm OK
 ![Alarm OK](img/alarm-ok.png)
+
+### Health Event
+![Health Event](img/health.png)
